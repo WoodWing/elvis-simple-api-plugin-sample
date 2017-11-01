@@ -5,12 +5,12 @@
       <pluginVersion>1.0</pluginVersion>
       <requiresAtLeast>6.7.0.0</requiresAtLeast>
     </version>
-    <description>API test plugin that maps to a JSON test API, check https://jsonplaceholder.typicode.com/ for all available API calls. Check README.md for installation and usage details.</description>
+    <description>API sample plugin that maps to a JSON test API, check https://jsonplaceholder.typicode.com/ for all available API calls. Check README.md for installation and usage details.</description>
   </info>
   <api>
     <url>https://jsonplaceholder.typicode.com/</url>
     <requiredRoles>
-      <role>ROLE_CUSTOM_API_TEST</role>
+      <role>ROLE_USER</role>
     </requiredRoles>
   </api>
 </plugin>

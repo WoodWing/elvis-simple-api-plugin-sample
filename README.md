@@ -14,12 +14,12 @@ The sample requires:
 # Installation
 
 * Read the [instruction](https://helpcenter.woodwing.com/hc/en-us/articles/202965685-Plug-ins-introduction-management) on installing Elvis plug-ins.
-* Copy the `api_plugin_test` folder to the Elvis Server plug-ins folder: `<Elvis Config>/plugins/active`.
+* Copy the `api_plugin_sample` folder to the Elvis Server plug-ins folder: `<Elvis Config>/plugins/active`.
 * Activate the plug-in through the Elvis Management Console.
 
 # Usage
 
-Assume your Elvis Server runs under http://localhost:8080, with the installation of this plugin, all requests to http://localhost:8080/plugins/api_plugin_test/ are proxied to https://jsonplaceholder.typicode.com/
+Assume your Elvis Server runs under http://localhost:8080, with the installation of this plugin, all requests to http://localhost:8080/plugins/api_plugin_sample/ are proxied to https://jsonplaceholder.typicode.com/
 
 As an example, we're going to get the first post from the API. Calling the typicode API directly looks like this:
 
@@ -39,7 +39,7 @@ With response:
 
 Now let's use this through our API plugin:
 ```bash
-curl -X GET "http://localhost:8080/plugins/api_plugin_test/posts/1"
+curl -X GET "http://localhost:8080/plugins/api_plugin_sample/posts/1"
 ```
 
 This call will actually fail with the following error message:
@@ -51,7 +51,7 @@ This call will actually fail with the following error message:
 }
 ```
 
-Reason is that our Elvis API Plugin requires Elvis authentication (ROLE_CUSTOM_API_TEST). So we first have to authenticate and after that we can call the API.
+Reason is that our Elvis API Plugin requires Elvis authentication (ROLE_USER). So we first have to authenticate and after that we can call the API.
 
 Authenticate to Elvis request:
 ```bash
@@ -70,7 +70,7 @@ Authentication response:
 
 We can authenticate our API call by passing the returned `authToken` in the Authorization: Bearer header:
 ```bash
-curl -X GET -H "Authorization: Bearer eyJhbG ... 42SdgwQ" "http://localhost:8080/plugins/api_plugin_test/posts/1"
+curl -X GET -H "Authorization: Bearer eyJhbG ... 42SdgwQ" "http://localhost:8080/plugins/api_plugin_sample/posts/1"
 ```
 
 Note: the actual authToken is a lot longer, it's trimmed in this example to keep it readable.
